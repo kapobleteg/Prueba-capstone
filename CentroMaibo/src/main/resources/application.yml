@@ -1,0 +1,53 @@
+server:
+ port: 8080
+ error:
+  include-message: always
+
+
+spring:
+ application:
+  name: CentroMaibo
+
+ jpa:
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    default_schema: maibo
+    type_print.banner: false
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
+  generate-ddl: false
+
+  mail:
+   host: smtp.gmail.com
+   port: 587
+   username: asdasd@asdas.com
+   password: 2321312ads
+   protocol: smtp
+   properties:
+    mail:
+     smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+
+ datasource:
+  url: jdbc:postgresql://localhost:5432/db_maibo
+  username: user_maibo
+  password: maibo
+ flyway:
+  enabled: true
+  encoding: utf8
+  default-schema: maibo
+  locations: classpath:db/migration
+  schemas:
+   - maibo
+
+maibo:
+ mail:
+  from: matiasjoel0612@gmail.com
+  base-url: http://localhost:9001
+ role:
+  admin-role-id: -1
+  client-role-id: -2
+  patient-role-id: -3
+

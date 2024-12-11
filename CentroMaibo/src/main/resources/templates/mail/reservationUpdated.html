@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva Actualizada</title>
+</head>
+<body>
+<h2>Tu Reserva ha sido Actualizada</h2>
+<p>Estimado/a <span th:text="${user.name}">Nombre</span>,</p>
+<p>Te informamos que tu reserva ha sido actualizada con los siguientes detalles:</p>
+<p>
+    Fecha de Inicio: <span th:text="${formattedStartDate}">Fecha Inicio</span><br>
+    Fecha de Fin: <span th:text="${formattedEndDate}">Fecha Fin</span>
+</p>
+<p>Si tienes alguna duda o necesitas realizar cambios adicionales, no dudes en ponerte en contacto con nosotros.</p>
+<p>Saludos cordiales,</p>
+<p>El Equipo de MAIBO</p>
+</body>
+</html>

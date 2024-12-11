@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Activación de Cuenta</title>
+</head>
+<body>
+<h2>¡Bienvenido/a a Maibo!</h2>
+<p>Hola <span th:text="${user.name}">Nombre</span>,</p>
+<p>Para activar tu cuenta, sigue el siguiente enlace:</p>
+<p>
+    <a th:with="url=(@{|${baseUrl}/#/reset/finish?key=${user.activationKey}|})" th:href="${url}"
+       th:text="${url}">Activar Cuenta</a>
+</p>
+<p>Gracias por unirte a nosotros.</p>
+</body>
+</html>
