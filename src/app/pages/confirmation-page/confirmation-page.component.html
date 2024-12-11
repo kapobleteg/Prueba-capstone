@@ -1,0 +1,96 @@
+<p-toast></p-toast>
+<div class="box-confirmation-page">
+  <h2>Agendar Cita</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input 
+        id="name" 
+        type="text" 
+        formControlName="name" 
+        placeholder="Ingresa tu nombre" 
+        required 
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo Electrónico</label>
+      <input 
+        id="email" 
+        type="email" 
+        formControlName="email" 
+        placeholder="Ingresa tu correo" 
+        required 
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Número de Teléfono</label>
+      <input 
+        id="phone" 
+        type="tel" 
+        formControlName="phone" 
+        placeholder="Ingresa tu número de teléfono" 
+        required 
+      />
+    </div>
+
+    <div class="form-group">
+      <p-dropdown formControlName="psychologist" required id="psychologist" [options]="(psychologists$ | async) || []" optionLabel="name" placeholder="Selecciona Psicólogo" opcionValue="id" (click)="selectPsychologist()"> 
+      </p-dropdown>
+    </div>
+    <div *ngIf="bankInfo">  
+      <p-accordion>
+    <p-accordionTab header="Datos de Transferencia">
+      <div class="p-fluid">
+        <p><strong>Nombre del destinatario:</strong>{{bankInfo.name}}</p>
+        <p><strong>RUT del destinatario:</strong> {{bankInfo.rut}}</p>
+        <p><strong>Banco:</strong>{{bankInfo.bank}}</p>
+        <p><strong>Tipo de cuenta:</strong> {{bankInfo.accountType}}</p>
+        <p><strong>Número de cuenta:</strong> {{bankInfo.accountNumber}}</p>
+        <p><strong>Monto a transferir (CLP):</strong>{{bankInfo.amountTransfer}}</p>
+        <p><strong>Motivo de la transferencia:</strong> {{bankInfo.reasonTransfer}}</p>
+      </div>
+    </p-accordionTab>
+  </p-accordion>
+  </div>
+
+    <div class="form-group">
+      <label for="reservationDate">Selecciona la Fecha y Hora</label>
+      <p-calendar 
+        id="reservationDate" 
+        formControlName="reservationDate" 
+        [showTime]="true" 
+        [hourFormat]="'24'" 
+        [minDate]="minDate">
+      </p-calendar>
+    </div>
+
+    <div class="form-group">
+      <label>Sube el comprobante de pago:</label>
+      <p-fileUpload
+      mode="basic"
+      chooseLabel="Subir comprobante"
+      chooseIcon="pi pi-upload"
+      name="demo[]"
+      url="/api/cdn/api/upload.php" 
+      accept="image/*"
+      maxFileSize="1000000"
+      (onUpload)="onFileSelected($event)"
+    ></p-fileUpload>
+  </div>
+    
+    <button 
+      type="submit" 
+      [disabled]="!form.valid || loading" 
+      pButton>
+      <ng-container *ngIf="!loading; else loadingTemplate">
+        Confirmar Reserva
+      </ng-container>
+      <ng-template #loadingTemplate>
+        <i class="pi pi-spin pi-spinner"></i> Cargando...
+      </ng-template>
+    </button>
+  </form>
+</div>

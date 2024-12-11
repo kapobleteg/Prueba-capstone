@@ -1,0 +1,18 @@
+<div class="navbar-page" [class.scrolled]="scrolled">
+  <div class="barra">
+    <div class="logo-container">
+      <img src="/assets/img/logo.jfif" alt="Logo" class="logo">
+    </div>
+    <div class="navegacion">
+      <a class="navegacion__enlace" routerLink="/home">Inicio</a>
+      <a class="navegacion__enlace" routerLink="/about-me">Equipo Clínico</a>
+      <a class="navegacion__enlace" routerLink="/box-rental">Arriendo de box</a>
+      <a class="navegacion__enlace" routerLink="/contact">Contacto</a>
+      
+      <a *ngIf="!isAuthenticated" class="navegacion__enlace" routerLink="/login">Iniciar sesión</a>
+      
+      <a *ngIf="isAuthenticated" class="navegacion__enlace" routerLink="/dashboard">Dashboard</a>
+      <a *ngIf="isAuthenticated" class="navegacion__enlace" (click)="logout()">Cerrar sesión</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  p-card {
+    width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: white;
+    text-align: left;
+  }
+  
+  .profile-title {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .profile-info {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .profile-info p {
+    margin: 10px 0;
+  }
+  

@@ -1,0 +1,46 @@
+:host {
+    height: 100%;
+    display: block;
+  }
+  
+  .main-container {
+    display: flex;
+    height: 100%;
+    flex-flow: column;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-flow: row;
+  }
+  
+  .flex-col {
+    flex: 0 0 50%;
+    overflow-y: auto;
+    padding-right: 2rem;
+  }
+  
+  .flex-col-wrapper {
+    height: 1px;
+  }
+  
+  @media only screen and (max-width: 1100px) {
+    .flex-col {
+      flex: 0 0 content;
+      overflow-y: auto;
+      padding-right: 0;
+    }
+  
+    .flex-col-wrapper {
+      height: fit-content;
+    }
+  
+    .flex-container {
+      flex-flow: column;
+    }
+  
+    .calendar-col {
+      height: calc(100vh - 200px) !important;
+    }
+    
+  }

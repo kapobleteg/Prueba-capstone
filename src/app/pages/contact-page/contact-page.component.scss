@@ -1,0 +1,106 @@
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column; 
+  }
+
+  .contact-form {
+    flex: 1;
+    margin-right: 20px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input, textarea {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 1em;
+      }
+
+      button {
+        background-color: #18bc9c;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #128f76;
+      }
+    }
+  }
+
+  .contact-map {
+    flex: 1;
+    margin-left: 20px;
+
+    iframe {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+  }
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+input.ng-valid.ng-touched,
+textarea.ng-valid.ng-touched {
+  border-color: green;
+}
+
+
+.footer {
+  background-color: #98AFC7;
+  color: white;
+  padding: 20px 0;
+  width: 100vw;
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+  left: 0;
+  right: 0;
+
+  .footer-content {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #18bc9c;
+    }
+  }
+}

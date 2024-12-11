@@ -1,0 +1,47 @@
+/* Contenedor del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Aumenta la separación entre los elementos */
+  }
+  
+  /* Campos del formulario */
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Añade espacio entre la etiqueta y el campo */
+    display: block;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Checkbox */
+  .form-label-checkbox {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Footer del diálogo */
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem; /* Separación entre los botones */
+    margin-top: 2rem; /* Añade espacio adicional encima de los botones */
+  }
+  
+  /* General del diálogo */
+  p-dialog .p-dialog-content {
+    padding: 2rem; /* Añade más espacio interno al diálogo */
+  }
+  
+  p-dialog .p-dialog-titlebar {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem;
+  }
+  

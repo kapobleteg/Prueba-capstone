@@ -1,0 +1,69 @@
+<div class="about-me">
+  <div class="cover-section">
+    <img src="assets/img/imagen20.jpg" alt="Portada de Oficina" class="cover-image">
+    <div class="cover-overlay">
+      <div class="overlay-content">
+        <h1>Centro Maibo es tu lugar seguro</h1>
+        <p>
+          Brindamos atenciones en Salud Mental de manera respetuosa e integral, valorando cada persona y abordando temas comunitarios relevantes.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-team">
+    <h2>Equipo Clínico Maibo</h2>
+    <div class="team-members" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+      <div class="team-member" style="text-align: center;">
+        <img src="assets/img/portada.jpg" alt="David Alejandro Ramírez Muñoz" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover;">
+        <h3>David Alejandro Ramírez Muñoz</h3>
+        <p>Psicólogo Clínico</p>
+        <p>Especialista en Psicoterapia en adolescentes y adultos.</p>
+
+        <button class="toggle-button" (click)="toggleServices('david')">Ver Servicios</button>
+        <div *ngIf="servicesVisible['david']" class="services-list">
+          <ul>
+            <li>Acompañamiento psicológico en fin de vida</li>
+            <li>Apoyo psicoeducativo adulto</li>
+            <li>Asesoramiento en violencia intrafamiliar</li>
+            <li>Autoconocimiento</li>
+            <li>Psicoterapia con perspectiva LGBTIQA+</li>
+            <li>Psicoterapia de trauma</li>
+            <li>Terapia individual</li>
+            <li>Salud mental</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="services-section">
+    <h2>Nuestros Servicios</h2>
+    <div class="service-boxes">
+      <div class="service-box">
+        <img src="assets/img/imagen16.jpg" alt="Psicoterapia">
+        <p>Entiendo la terapia como un trabajo en equipo, donde ambas partes colaboramos para alcanzar un objetivo.</p>
+      </div>
+
+      <div class="service-box">
+        <img src="assets/img/imagen17.jpeg" alt="Columnas">
+        <p>La terapia siempre requiere un trabajo activo por parte del paciente, y no solo dentro de la sesión.</p>
+      </div>
+
+      <div class="service-box">
+        <img src="assets/img/imagen18.jpg" alt="Charlas">
+        <p>La frecuencia de las sesiones dependerá de cada caso y la duración es de una hora.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Centro Maibo - Todos los derechos reservados</p>
+      <p>Dirección: Dr. Manuel Barros Borgoño 110, Providencia, Santiago, Chile</p>
+      <p>Teléfono: +56 2 2345 6789 | Correo: contacto&#64;centromaibo.cl</p>
+    </div>
+  </footer>
+</div>

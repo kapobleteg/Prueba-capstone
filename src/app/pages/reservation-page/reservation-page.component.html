@@ -1,0 +1,45 @@
+<div class="reservation-container">
+  <h2>Reservar cita</h2>
+  
+  <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+    
+    <div class="form-group">
+      <label for="address">Dirección:</label>
+      <input type="text" id="address" [(ngModel)]="reservationData.address" name="address" readonly>
+    </div>
+
+    
+    <div class="form-group">
+      <label for="motivo">Elige el motivo de la visita:</label>
+      <select id="motivo" [(ngModel)]="reservationData.motivo" name="motivo" required>
+        <option value="Psicología">Consulta para Psicología</option>
+      </select>
+    </div>
+
+    
+    <div class="form-group">
+      <label for="date">Selecciona la fecha:</label>
+      <p-calendar [(ngModel)]="reservationData.fecha" name="fecha" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+    </div>
+
+    
+    <div class="form-group">
+      <label>¿Es tu primera visita con este especialista?</label>
+      <label>
+        <input type="radio" name="primeraVisita" [(ngModel)]="reservationData.primeraVisita" value="Si" required> Si
+      </label>
+      <label>
+        <input type="radio" name="primeraVisita" [(ngModel)]="reservationData.primeraVisita" value="No"> No
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="hora">Hora de la cita:</label>
+      <select id="hora" [(ngModel)]="reservationData.hora" name="hora" required>
+        <option *ngFor="let slot of availableSlots" [value]="slot">{{ slot }}</option>
+      </select>
+    </div>
+    
+    <button type="submit" [disabled]="reservationForm.invalid">Reservar cita</button>
+  </form>
+</div>

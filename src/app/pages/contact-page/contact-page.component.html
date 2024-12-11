@@ -1,0 +1,41 @@
+<div class="contact-page">
+
+  <div class="header-image">
+    <h1>Contáctanos</h1>
+  </div>
+
+  <div class="contact-container">
+    <div class="contact-form">
+      <h2>Escríbenos</h2>
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="contactFormData.name" placeholder="Tu nombre" required
+          minlength="3" #nameInput="ngModel">
+
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="contactFormData.email" placeholder="Tu correo" required
+          email #emailInput="ngModel">
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" [(ngModel)]="contactFormData.message" placeholder="Escribe tu mensaje"
+          required minlength="10" #messageInput="ngModel"></textarea>
+        <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+      </form>
+    </div>
+    <div class="contact-map">
+      <h2>Nuestra Ubicación</h2>
+      <iframe
+        src="https://www.google.com/maps/embed/v1/place?q=Dr.%20Manuel%20Barros%20Borgo%C3%B1o%20110,%20Providencia,%20Chile&key=AIzaSyDMDEdwBUZIXHo0AjusXCLhUlwhwjEmGVo"
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Centro Maibo - Todos los derechos reservados</p>
+      <p>Dirección: Dr. Manuel Barros Borgoño 110, Providencia, Santiago, Chile</p>
+      <p>Teléfono: +56 2 2345 6789 | Correo: contacto&#64;centromaibo.cl</p>
+    </div>
+  </footer>

@@ -1,0 +1,27 @@
+<div class="box-successful-payment">
+    <div class="payment-card">
+      <div class="payment-header">
+        <h2>¡Pago del Box Exitoso!</h2>
+        <p class="success-icon">✔️</p>
+      </div>
+  
+      <div class="payment-body">
+        <p>Tu pago por la reserva del box ha sido procesado correctamente.</p>
+        <div class="payment-details">
+          
+          <p><strong>👤 Nombre:</strong> {{ contactData.name }}</p>
+          <p><strong>✉️ Correo Electrónico:</strong> {{ contactData.email }}</p>
+          <p><strong>📞 Teléfono:</strong> {{ contactData.phone }}</p>
+          <p><strong>📦 Box Reservado:</strong> {{ contactData.boxName }}</p>
+          <p><strong>🏢 Piso del Box:</strong> {{ contactData.boxFloor }}</p>
+        </div>
+  
+        <p>Gracias por utilizar nuestro servicio de reservas.</p>
+      </div>
+  
+      <div class="payment-footer">
+        <button class="return-button" routerLink="/">Volver a la página principal</button>
+      </div>
+    </div>
+  </div>
+  

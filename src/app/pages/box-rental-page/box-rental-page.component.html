@@ -1,0 +1,44 @@
+<div class="box-rental-page">
+  
+  <div class="cover-section">
+    <img src="/assets/img/imagen25.jpg" alt="Portada de Oficina" class="cover-image">
+    <div class="cover-overlay">
+      <h1>Descubre nuestras oficinas modernas y profesionales</h1>
+    </div>
+  </div>
+
+  <div class="info-text">
+    <h2>Bienvenido a nuestra Clínica</h2>
+    <p>Ofrecemos oficinas modernas y equipadas para la mejor atención de nuestros pacientes. Reserva tu box y disfruta de nuestras instalaciones de primer nivel.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>Reserva tu Box</h2>
+    <div class="office-grid" *ngIf="boxes$ | async as boxes">
+      <div class="office-item" *ngFor="let office of boxes">
+        <img [src]="office.imageURLS[0]" alt="{{office.name}}" class="office-image">
+        <div class="office-info">
+          <h3>{{office.name}}</h3>
+          <p>{{office.location}} | Precio: {{office.price}}</p>
+          <button class="agendar-btn" (click)="onReserve(office)">Agendar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-section">
+    <h2>Conoce nuestras instalaciones</h2>
+    <video autoplay muted loop class="video-clip">
+      <source src="assets/video/DEIVID 01 v2.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
+
+  <footer class="footer-section">
+    <div class="footer-content">
+      <p>&copy; 2024 Centro Maibo - Todos los derechos reservados</p>
+      <p>Dirección: Dr. Manuel Barros Borgoño 110, Providencia, Santiago, Chile</p>
+      <p>Teléfono: +56 2 2345 6789 | Correo: contacto&#64;centromaibo.cl</p>
+    </div>
+  </footer>
+</div>

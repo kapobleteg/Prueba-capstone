@@ -1,0 +1,108 @@
+<div class="button-container">
+    <button pButton type="button" label="Agregar Usuario" icon="pi pi-plus" (click)="showAddUserDialog()"></button>
+  </div>
+
+  <p-table
+  [value]="(users$ | async) || []"
+  [paginator]="true"
+  [rows]="5"
+  [tableStyle]="{ 'min-width': '70rem' }"
+  [rowsPerPageOptions]="[5, 10, 20]"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width:10%">Nombre</th>
+      <th style="width:15%">Correo Electrónico</th>
+      <th style="width:15%">Teléfono</th>
+      <th style="width:10%">Rol</th>
+      <th style="width:10%">Estado</th>
+      <th style="width:10%">Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user>
+    <tr>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.role.name | roleTranslate }}</td>
+      <td>
+        <p-inputSwitch 
+          [(ngModel)]="user.status" 
+          (onChange)="toggleUserStatus(user)">
+        </p-inputSwitch>
+      </td>
+      <td>
+        <div class="action-buttons">
+          <button 
+            pButton 
+            type="button" 
+            icon="pi pi-pencil" 
+            class="p-button-rounded p-button-secondary" 
+            (click)="editUser(user)">
+          </button>
+          <button 
+            pButton 
+            type="button" 
+            icon="pi pi-trash" 
+            class="p-button-rounded p-button-danger" 
+            (click)="delete(user)">
+          </button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+
+<p-dialog 
+  [(visible)]="displayAddUserDialog" 
+  header="Agregar Usuario" 
+  [modal]="true" 
+  [closable]="true" 
+  [style]="{ width: '40vw' }" 
+  [baseZIndex]="10000">
+  
+  <form [formGroup]="addUserForm" (ngSubmit)="onAddUser()" class="form-container">
+    <div class="p-field">
+      <label for="name" class="form-label">Nombre</label>
+      <input id="name" type="text" pInputText formControlName="name" placeholder="Ingrese el nombre" class="form-input" />
+    </div>
+    <div class="p-field">
+      <label for="email" class="form-label">Correo Electrónico</label>
+      <input id="email" type="email" pInputText formControlName="email" placeholder="Ingrese el correo electrónico" class="form-input" />
+    </div>
+    <div class="p-field">
+      <label for="phone" class="form-label">Teléfono</label>
+      <input id="phone" type="text" pInputText formControlName="phone" placeholder="Ingrese el teléfono" class="form-input" />
+    </div>
+    <div class="p-field">
+      <label for="role" class="form-label">Rol</label>
+      <p-dropdown 
+        formControlName="role" 
+        [options]="(roles$ | async) || []" 
+        optionLabel="name" 
+        optionValue="id"
+        placeholder="Selecciona un rol" 
+        class="form-input">
+        <ng-template let-role pTemplate="selectedItem">
+          {{ role.name | roleTranslate }}
+        </ng-template>
+        <ng-template let-role pTemplate="item">
+          {{ role.name | roleTranslate }}
+        </ng-template>
+      </p-dropdown>
+    </div>
+
+    <div class="p-field-checkbox">
+      <p-checkbox inputId="status" formControlName="status" binary="true"></p-checkbox>
+      <label for="status" class="form-label-checkbox">Activo</label>
+    </div>
+
+    <div class="dialog-footer">
+      <button pButton type="submit" label="Guardar" icon="pi pi-check" class="p-button-success" [disabled]="addUserForm.invalid"></button>
+      <button pButton type="button" label="Cancelar" icon="pi pi-times" class="p-button-secondary" (click)="hideAddUserDialog()"></button>
+    </div>
+  </form>
+
+</p-dialog>

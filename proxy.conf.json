@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://www.primefaces.org",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

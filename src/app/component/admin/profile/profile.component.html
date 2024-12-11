@@ -1,0 +1,26 @@
+<div class="profile-container" *ngIf="profile$ | async as profile">
+    <p-card>
+      <ng-template pTemplate="header">
+        <h2 class="profile-title">{{ profile.user.name }}</h2>
+      </ng-template>
+  
+      <ng-template pTemplate="content">
+        <div class="profile-info">
+          <p><strong>Correo Electrónico:</strong> {{ profile.user.email }}</p>
+          <p><strong>Teléfono:</strong> {{ profile.user.phone }}</p>
+          <p><strong>Especialidad:</strong> {{ profile.specialty }}</p>
+          <p><strong>Certificaciones:</strong></p>
+          <ul *ngIf="profile.certifications && profile.certifications.length > 0; else noCertifications">
+            <li *ngFor="let certification of profile.certifications">
+              {{ certification }}
+            </li>
+          </ul>
+          <ng-template #noCertifications>
+            Ninguna
+          </ng-template>
+          <p><strong>Estado:</strong> {{ profile.user.status ? 'Activo' : 'Inactivo' }}</p>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+  

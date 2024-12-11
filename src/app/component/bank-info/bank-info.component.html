@@ -1,0 +1,40 @@
+<p-card header="Información Bancaria">
+    <form [formGroup]="bankForm">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="name">Nombre Destino</label>
+          <input id="name" pInputText formControlName="name" />
+        </div>
+        <div class="p-field">
+          <label for="bank">Banco</label>
+          <input id="bank" pInputText formControlName="bank" />
+        </div>
+        <div class="p-field">
+          <label for="rut">RUT</label>
+          <input id="rut" pInputText formControlName="rut" />
+        </div>
+        <div class="p-field">
+          <label for="accountType">Tipo de Cuenta</label>
+          <input id="accountType" pInputText formControlName="accountType" />
+        </div>
+        <div class="p-field">
+          <label for="accountNumber">Número de Cuenta</label>
+          <input id="accountNumber" pInputText formControlName="accountNumber" />
+        </div>
+        <div class="p-field">
+          <label for="amountTransfer">Monto de Transferencia</label>
+          <input id="amountTransfer" pInputText formControlName="amountTransfer" />
+        </div>
+        <div class="p-field">
+          <label for="reasonTransfer">Motivo</label>
+          <textarea id="reasonTransfer" pInputTextarea formControlName="reasonTransfer"></textarea>
+        </div>
+      </div>
+    </form>
+  
+    <div class="p-d-flex p-jc-between p-mt-3">
+      <button pButton label="Guardar" icon="pi pi-save" (click)="save()" [disabled]="bankForm.invalid"></button>
+      <button pButton label="Eliminar" icon="pi pi-trash" class="p-button-danger" (click)="delete()"></button>
+    </div>
+  </p-card>
+  

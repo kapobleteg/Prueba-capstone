@@ -1,0 +1,15 @@
+<div style="height: 500px;">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div> 
+
+  <p-dialog header="Detalles de la Reserva" [(visible)]="displayDialog" [modal]="true" [closable]="true" [style]="{ width: '400px' }">
+    <div *ngIf="selectedReservation">
+      <p><strong>Usuario:</strong> {{ selectedReservation.title }}</p>
+      <p><strong>Fecha Inicio:</strong> {{ selectedReservation.start | date: 'short' }}</p>
+      <p><strong>Fecha Fin:</strong> {{ selectedReservation.end | date: 'short' }}</p>
+      <p><strong>Estado:</strong> {{ selectedReservation.status | reservationStatus }}</p>
+      <p><strong>Monto:</strong> {{ selectedReservation.amount | currency:'USD':'symbol':'1.0-0' }}</p>
+    </div>
+
+    <button type="button" pButton label="Cancelar Cita" (click)="onCancelReservation()" class="p-button-danger"></button>
+  </p-dialog>

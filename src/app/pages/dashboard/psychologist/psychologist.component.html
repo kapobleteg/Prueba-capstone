@@ -1,0 +1,17 @@
+<div class="tabview-container">
+    <p-tabView>
+      <p-tabPanel header="Calendario">
+        <app-calendar-psycologist (reservationUpdated)="onReservationUpdated()"></app-calendar-psycologist>
+      </p-tabPanel>
+      <p-tabPanel header="Reservas">
+        <app-reservation-psycologist #reservationPsycologist></app-reservation-psycologist>
+      </p-tabPanel>
+      <p-tabPanel header="Perfil">
+        <app-profile></app-profile>
+      </p-tabPanel>
+      <p-tabPanel header="Datos Bancarios">
+        <app-bank-info></app-bank-info>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+  
